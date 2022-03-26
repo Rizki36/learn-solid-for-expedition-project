@@ -3,6 +3,10 @@
 This repository for learn SOLID based on expedition project <br>
 where are many expedition vendor, there are jne, sap, jnt and can increase. <br>
 
+## How to run
+- npm install
+- npm start
+
 ## Words to know
 - Order : same as create shipment
 - Shipment Cost : cost for orders
