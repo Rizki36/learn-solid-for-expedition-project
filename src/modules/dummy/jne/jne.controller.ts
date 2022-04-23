@@ -1,5 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 import { successResponse } from "../../../helpers/methods";
+import { ISuccessCreateShipment } from "./jne.type";
 
 /** create shipment */
 export const createShipment = async (
@@ -8,7 +9,9 @@ export const createShipment = async (
     next: NextFunction
 ) => {
     try {
-        const data = {};
+        const data: ISuccessCreateShipment = {
+            detail: [{ status: "success", cnote_no: "AA00312201000031" }],
+        };
 
         successResponse(res, {
             data,
