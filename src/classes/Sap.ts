@@ -6,7 +6,7 @@ class Sap extends Vendor {
     name = "Sap";
     orderEndPoint = "https://sap/order";
 
-    createOrder(data: CreateOrder) {
+    async createOrder(data: CreateOrder) {
         /** hit endpoint order */
 
         /** create dummy response */

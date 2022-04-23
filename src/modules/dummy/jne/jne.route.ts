@@ -9,6 +9,6 @@ const jneController = new JneController();
  * */
 
 /** create order */
-route.post("/jne/pickupcashless", jneController.createOrder);
+route.post("/pickupcashless", jneController.createOrder);
 
 export default route;
