@@ -1,11 +1,15 @@
-import { Request, Response } from "express";
-import { ErrorResponseType, IResponse, SuccessResponseType } from "../types/helpers/methods";
+import { Response } from "express";
+import {
+    ErrorResponseType,
+    SuccessResponseType,
+} from "../types/helpers/methods";
 
-export const successResponse:SuccessResponseType = (res:Response,{
-    message,
-    data,
-}) => {
-     return res.send({
+export const successResponse: SuccessResponseType = (
+    res,
+    { message, data },
+    code = 200
+) => {
+    return res.status(code).send({
         status: true,
         message: message ?? "Success !",
         data: data ?? null,
@@ -13,14 +17,15 @@ export const successResponse:SuccessResponseType = (res:Response,{
     });
 };
 
-export const errorResponse:ErrorResponseType = ({
-    message,
-    errors,
-}) => {
-    return {
+export const errorResponse: ErrorResponseType = (
+    res,
+    { message, errors },
+    code = 400
+) => {
+    return res.status(code).send({
         status: false,
         message: message ?? "Error !",
         data: null,
         errors: errors ?? null,
-    };
+    });
 };

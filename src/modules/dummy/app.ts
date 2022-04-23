@@ -1,11 +1,11 @@
 import express, { Application, NextFunction, Request, Response } from "express";
 import { cors } from "cors-ts";
-import indexRoutes from "./modules/routes";
 import morgan from "morgan";
-import env from "./configs/env";
+import env from "../../configs/env";
+import jneRoute from "./jne/jne.route";
 
 const cookieParser = require("cookie-parser");
-const port = env.port;
+const port = env.dummy_server_port;
 
 class App {
     public readonly application: Application;
@@ -23,18 +23,18 @@ class App {
     private plugins() {
         this.application.use(
             cors({
-                origin: ["http://localhost:3001"],
+                origin: ["http://localhost:3000"],
                 credentials: true,
             })
         );
         this.application.use(express.json());
         this.application.use(express.urlencoded());
         this.application.use(cookieParser());
-        this.application.use(morgan("common"));
+        this.application.use(morgan("short"));
     }
 
     private async routes() {
-        this.application.use(indexRoutes);
+        this.application.use("/jne", jneRoute);
 
         // Catch error 404 endpoint not found
         this.application.use("*", (req: Request, res: Response) => {
@@ -51,15 +51,12 @@ class App {
             next: NextFunction
         ) {
             console.log(err);
-            console.log("errrrr");
         });
     }
 
     public async run() {
-        console.log(`Node environment: ${env.environment}`);
-
         this.application.listen(port, () => {
-            console.log(`Main Server App : http://localhost:${port}`);
+            console.log(`Dummy server vendor : http://localhost:${port}`);
         });
     }
 }

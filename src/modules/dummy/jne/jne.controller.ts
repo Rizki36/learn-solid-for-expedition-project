@@ -1,14 +1,13 @@
 import { NextFunction, Request, Response } from "express";
+import { IResponseCreateOrderJNE } from "../../../dto/order/CreateOrder";
 import { successResponse } from "../../../helpers/methods";
 import { VendorController } from "../vendor.controller";
-import { ISuccessCreateOrder } from "./jne.type";
 
 export default class JneController extends VendorController {
-    async createOrder(req: Request, res: Response, next: NextFunction) {
+    createOrder(req: Request, res: Response, next: NextFunction) {
         try {
-            console.log(req.body.awb_no);
-            const data: ISuccessCreateOrder = {
-                detail: [{ status: "success", cnote_no: req.body.awb_no }],
+            const data: IResponseCreateOrderJNE = {
+                detail: [{ status: "success", cnote_no: req.body.awb }],
             };
 
             // delay for 1 seconds
@@ -16,7 +15,6 @@ export default class JneController extends VendorController {
                 successResponse(res, { data });
             }, 1000);
         } catch (error) {
-            console.log(error);
             next(error);
         }
     }

@@ -1,5 +1,11 @@
-import App from './src/app'
+import App from "./src/app";
+import env from "./src/configs/env";
+import ServerDummy from "./src/modules/dummy/app";
 
-const app = new App()
+if (env.environment === "development") {
+    const serverDummy = new ServerDummy();
+    serverDummy.run();
+}
 
-app.run()
+const app = new App();
+app.run();

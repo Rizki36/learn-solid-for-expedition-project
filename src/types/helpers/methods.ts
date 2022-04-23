@@ -12,12 +12,19 @@ export interface IResponse<T = Record<string, any>, P = Record<string, any>> {
 type SuccessParamsType<T> = {
     message?: string;
     data?: T;
-}
-export type SuccessResponseType = <T = DataType | null>(res:Response,params:SuccessParamsType<T>)=> Response<IResponse<T>>;
-
+};
+export type SuccessResponseType = <T = DataType | null>(
+    res: Response,
+    params: SuccessParamsType<T>,
+    code?: number
+) => Response<IResponse<T>>;
 
 type ErrorResponseParamsType<T> = {
     message?: string;
     errors?: T;
-}
-export type ErrorResponseType = <T = DataType | null>(params:ErrorResponseParamsType<T>)=> IResponse<null,T>;
+};
+export type ErrorResponseType = <T = DataType | null>(
+    res: Response,
+    params: ErrorResponseParamsType<T>,
+    code?: number
+) => Response<IResponse<null, T>>;
