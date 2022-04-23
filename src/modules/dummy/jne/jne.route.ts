@@ -8,7 +8,7 @@ const jneController = new JneController();
  * endpoint simulation
  * */
 
-/** create shipment */
-route.post("/jne/pickupcashless", jneController.createShipment);
+/** create order */
+route.post("/jne/pickupcashless", jneController.createOrder);
 
 export default route;

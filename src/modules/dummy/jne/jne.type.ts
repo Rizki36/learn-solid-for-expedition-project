@@ -1,4 +1,4 @@
 type StatusType = "success";
-export interface ISuccessCreateShipment {
+export interface ISuccessCreateOrder {
     detail: { status: StatusType; cnote_no: string }[];
 }
