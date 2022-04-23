@@ -49,5 +49,9 @@ where are many expedition vendor, there are jne, sap, jnt and can increase. <br>
 - [ ] Template Method
 - [ ] Visitor
 
+### Schemas
+Request Schema
+![Request Schema](https://user-images.githubusercontent.com/39044004/164895646-216f1e91-a683-4b6c-9a06-90a093df3b14.png)
+
 ## End Section
 Feel free to contribute for this project with create PR. <br>
