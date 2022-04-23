@@ -7,7 +7,7 @@ export default class JneController extends VendorController {
     createOrder(req: Request, res: Response, next: NextFunction): void {
         try {
             const data: ISuccessCreateOrder = {
-                detail: [{ status: "success", cnote_no: "AA00312201000031" }],
+                detail: [{ status: "success", cnote_no: req.body.awb_no }],
             };
 
             successResponse(res, {

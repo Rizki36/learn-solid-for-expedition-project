@@ -1,3 +1,4 @@
+import axios, { AxiosResponse } from "axios";
 import { CreateOrder, ResponseOrder } from "../dto/order/CreateOrder";
 import Vendor from "./Vendor";
 
@@ -6,16 +7,13 @@ class Jne extends Vendor {
     name = "Jne";
     orderEndPoint = "https://api.jne.co.id/v1/public/order";
 
-    createOrder(data: CreateOrder) {
-        /** hit endpoint order */
+    async createOrder(data: CreateOrder) {
+        const response = await axios.post<{}, AxiosResponse<ResponseOrder>>(
+            this.orderEndPoint,
+            data
+        );
 
-        /** create dummy response */
-        const response: ResponseOrder = {
-            awb: data.awb || "",
-            reference: data.reference || "",
-        };
-
-        return response;
+        return response.data;
     }
 }
 

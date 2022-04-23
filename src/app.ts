@@ -2,15 +2,10 @@ import express, { Application, NextFunction, Request, Response } from "express";
 import { cors } from "cors-ts";
 import indexRoutes from "./modules/routes";
 import morgan from "morgan";
-import dotenv from "dotenv";
-
-dotenv.config();
-
-// import swaggerUi from "swagger-ui-express";
-// import { optionsSwaggerUI, swaggerSpec } from "./lib/DocsSwagger";
+import env from "./configs/env";
 
 const cookieParser = require("cookie-parser");
-const port = process.env.PORT;
+const port = env.port;
 
 class App {
     public readonly application: Application;
@@ -61,7 +56,7 @@ class App {
     }
 
     public async run() {
-        console.log(`Node environment: ${process.env.NODE_ENV}`);
+        console.log(`Node environment: ${env.environment}`);
 
         this.application.listen(port, () => {
             console.log(
