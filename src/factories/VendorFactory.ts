@@ -1,12 +1,12 @@
 import Jne from "../classes/Jne";
 import Sap from "../classes/Sap";
-import { CreateOrder } from "../dto/order/CreateOrder";
+import { IRequestCreateOrder } from "../dto/createOrder";
 import { Vendors } from "../types";
 
 class VedorFactory {
     constructor(public vendor: Vendors) {}
 
-    CreateOrder(data: CreateOrder) {
+    CreateOrder(data: IRequestCreateOrder) {
         switch (this.vendor) {
             case "JNE":
                 return new Jne().createOrder(data);

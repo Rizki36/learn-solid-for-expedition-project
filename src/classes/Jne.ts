@@ -1,10 +1,8 @@
 import axios, { AxiosResponse } from "axios";
 import env from "../configs/env";
-import {
-    CreateOrder,
-    IResponseCreateOrderJNE,
-    ResponseOrder,
-} from "../dto/order/CreateOrder";
+import { IRequestCreateOrder, IResponseCreateOrder } from "../dto/createOrder";
+import { IResponseCreateOrderJNE } from "../dto/createOrder/jne";
+
 import { IResponse } from "../types/helpers/methods";
 import Vendor from "./Vendor";
 
@@ -13,7 +11,7 @@ class Jne extends Vendor {
     name = "Jne";
     orderEndPoint = env.jne.createOrderEndpoint;
 
-    async createOrder(data: CreateOrder) {
+    async createOrder(data: IRequestCreateOrder) {
         const response = await axios.post<
             {},
             AxiosResponse<IResponse<IResponseCreateOrderJNE, null>>
@@ -25,7 +23,7 @@ class Jne extends Vendor {
 
         const { cnote_no } = response.data.data.detail[0];
 
-        const output: ResponseOrder = {
+        const output: IResponseCreateOrder = {
             awb: cnote_no,
             reference: cnote_no,
         };

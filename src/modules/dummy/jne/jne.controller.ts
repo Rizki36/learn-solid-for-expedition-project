@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response } from "express";
-import { IResponseCreateOrderJNE } from "../../../dto/order/CreateOrder";
+import { IResponseCreateOrderJNE } from "../../../dto/createOrder/jne";
 import { successResponse } from "../../../helpers/methods";
 import { VendorController } from "../vendor.controller";
 

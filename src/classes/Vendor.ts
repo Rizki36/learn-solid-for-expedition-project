@@ -1,4 +1,4 @@
-import { CreateOrder, ResponseOrder } from "../dto/order/CreateOrder";
+import { IRequestCreateOrder, IResponseCreateOrder } from "../dto/createOrder";
 
 abstract class Vendor {
     abstract id: string;
@@ -8,7 +8,7 @@ abstract class Vendor {
     abstract orderEndPoint: string;
 
     /** @method createOrder method for create order */
-    abstract createOrder(data: CreateOrder): Promise<ResponseOrder>;
+    abstract createOrder(data: IRequestCreateOrder): Promise<IResponseCreateOrder>;
 }
 
 export default Vendor;

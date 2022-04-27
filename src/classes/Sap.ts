@@ -1,4 +1,4 @@
-import { CreateOrder, ResponseOrder } from "../dto/order/CreateOrder";
+import { IRequestCreateOrder, IResponseCreateOrder } from "../dto/createOrder";
 import Vendor from "./Vendor";
 
 class Sap extends Vendor {
@@ -6,11 +6,11 @@ class Sap extends Vendor {
     name = "Sap";
     orderEndPoint = "https://sap/order";
 
-    async createOrder(data: CreateOrder) {
+    async createOrder(data: IRequestCreateOrder) {
         /** hit endpoint order */
 
         /** create dummy response */
-        const response: ResponseOrder = {
+        const response: IResponseCreateOrder = {
             awb: data.awb || "",
             reference: data.reference || "",
         };
