@@ -2,6 +2,7 @@ type StatusTypeJNE = "success";
 
 export interface IResponseCreateOrderJNE {
     detail: { status: StatusTypeJNE; cnote_no: string }[];
+    error?: string;
 }
 
 export interface IRequestCreateOrderJNE {
@@ -13,27 +14,27 @@ export interface IRequestCreateOrderJNE {
     PICKUP_ADDRESS: string;
     PICKUP_DISTRICT: string;
     PICKUP_CITY: string;
-    PICKUP_SERVICE: string;
-    PICKUP_VEHICLE: string;
+    PICKUP_SERVICE: "Reguler" | "Domestic";
+    PICKUP_VEHICLE: "Motor" | "Motor" | "Truck" | string;
     BRANCH: string;
     SHIPPER_NAME: string;
     SHIPPER_ADDR1: string;
-    SHIPPER_ADDR2: string;
-    SHIPPER_ADDR3: string;
+    SHIPPER_ADDR2?: string;
+    SHIPPER_ADDR3?: string;
     SHIPPER_CITY: string;
     SHIPPER_ZIP: string;
     SHIPPER_REGION: string;
-    SHIPPER_COUNTRY: string;
+    SHIPPER_COUNTRY?: string;
     SHIPPER_CONTACT: string;
     SHIPPER_PHONE: string;
     RECEIVER_NAME: string;
     RECEIVER_ADDR1: string;
-    RECEIVER_ADDR2: string;
-    RECEIVER_ADDR3: string;
+    RECEIVER_ADDR2?: string;
+    RECEIVER_ADDR3?: string;
     RECEIVER_CITY: string;
     RECEIVER_ZIP: string;
     RECEIVER_REGION: string;
-    RECEIVER_COUNTRY: string;
+    RECEIVER_COUNTRY?: string;
     RECEIVER_CONTACT: string;
     RECEIVER_PHONE: string;
     ORIGIN_CODE: string;
@@ -43,12 +44,12 @@ export interface IRequestCreateOrderJNE {
     QTY: number;
     GOODS_DESC: string;
     GOODS_AMOUNT: number;
-    INSURANCE_FLAG: "N";
+    INSURANCE_FLAG: "Y" | "N";
     SPECIAL_INS: string;
     MERCHANT_ID: string;
-    LAT: 1;
-    LON: 1;
-    TYPE: string;
+    LAT?: string;
+    LON?: string;
+    TYPE: "DROP" | "PICKUP";
     COD_FLAG: "YES" | "NO";
     COD_AMOUNT: number;
     CUST_ID: string;

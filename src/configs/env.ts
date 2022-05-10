@@ -8,6 +8,10 @@ export default {
     environment: process.env.NODE_ENV || "development",
     jne: {
         createOrderEndpoint: process.env.JNE_CREATE_ORDER_ENDPOINT || "",
+    
+        apiKey: process.env.JNE_API_KEY || "",
+        username: process.env.JNE_USERNAME || "",
+        customerId: process.env.JNE_CUSTOMER_ID || "",
     },
     sap: {
         createOrderEndpoint: process.env.SAP_CREATE_ORDER_ENDPOINT || "",
