@@ -1,7 +1,6 @@
 # Learn Solid For Expedition Project
 
-This repository for learn SOLID based on expedition project <br>
-where are many expedition vendor, there are jne, sap, jnt and can increase. <br>
+This repository is for learning SOLID principles based on the Expedition project.<br> There are many expedition vendors, such as JNE, SAP, and JNT, and the number may increase.
 
 ## How to run
 - npm install
